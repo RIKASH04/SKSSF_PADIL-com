@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Competition Scoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>mueenul islam event Scoring</h1>
+        <form id="scoringForm">
+            <div class="event">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName" required>
+            </div>
+            <div class="judges">
+                <h2>Judges' Scores</h2>
+                <div class="judge">
+                    <label for="judge1">code number 1:</label>
+                    <input type="number" id="judge1" name="judge1" min="0" max="10" required>
+                </div>
+                <div class="judge">
+                    <label for="judge2">code number 2:</label>
+                    <input type="number" id="judge2" name="judge2" min="0" max="10" required>
+                </div>
+                <div class="judge">
+                    <label for="judge3">code number 3:</label>
+                    <input type="number" id="judge3" name="judge3" min="0" max="10" required>
+                </div>
+            </div>
+            <button type="button" onclick="calculateAverage()">Submit Scores</button>
+        </form>
+        <div id="result" class="result"></div>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Check login status on page load
+        window.onload = function() {
+            if (localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = 'login.html';
+            }
+        };
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
